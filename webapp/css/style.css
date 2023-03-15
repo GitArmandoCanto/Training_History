@@ -1,0 +1,51 @@
+/* Enter your custom styles here */
+.btnPrnt{
+    margin-left: 150px;
+}
+.TH_SpaceBtObj{
+    font-size: 0.975rem;
+    margin-top: 20px;
+    
+}
+.TH_TblTitle{
+    font-size: 0.975rem;
+    margin-left: 47px;
+}
+.TH_TblInd{
+    margin-left: 24px;
+}
+.TH_TblIndFin{
+    margin-right: 24px;
+}
+.TH_Colfont{
+      font-weight: bolder;
+      font-size: 1.8rem;
+      text-align: center;
+      text-underline-position: below;
+  }
+.TH_Hdrlbl{
+    font-size: 1.3rem;
+    margin-right: 5px;
+    
+}
+.TH_HdrlblNoMargin{
+    font-size: 0.975rem;
+    margin-bottom: 0px;
+}
+.TH_ViewTitle{
+    font-size: 1.8rem;
+    font-weight: bolder;
+}
+.panel{
+    border-bottom: 4px black solid;
+    margin-bottom: 4px; 
+}
+.blue{
+    background-color:  rgba(75, 146, 240, 0.815);
+    font-weight: bolder !important;
+}
+.cyan{
+    background-color: rgba(108, 243, 243, 0.527);
+    font-weight: bolder  !important;
+    text-underline-position: below !important;
+}

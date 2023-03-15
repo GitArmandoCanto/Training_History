@@ -1,0 +1,186 @@
+<mvc:View
+    controllerName="nmspTrainHis.dwrtraininghistory.controller.training_history"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:uxap="sap.uxap" 
+    xmlns:calendar="sap.ui.unified.calendar" 
+    xmlns:core="sap.ui.core" 
+     xmlns:lay="sap.ui.layout" 
+    xmlns="sap.m" 
+    xmlns:css="sap.ui.core.CSSSize" 
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1" 
+    xmlns:ObHead="sap.uxap" 
+    displayBlock="true" >
+    <Shell id="shell">
+        <App id="app">
+            <pages>
+                <Page id="page" title="{i18n>title}" showHeader="false">
+                <ScrollContainer id="sc"
+		height="100%"
+		width="100%"
+		vertical="true"
+		focusable="true">
+    <!--Initial Gap-->
+                    <lay:VerticalLayout id="vlTitle" width="100%">
+                     
+                        <Label text="" id="lbl_space" design="Bold" class="TH_SpaceBtObj"/>
+    <!--End Initial Gap-->
+
+    <!--Title = Training History-->
+                        <Label text="{i18n>lbl_Title}" id="lbl_Title" class="TH_ViewTitle" width="100%" textAlign="Center"/>
+
+                        <Label text="" id="lbl_space2" design="Bold" class="TH_SpaceBtObj"/>
+                     </lay:VerticalLayout>
+    <!--End Title = Training History-->
+
+                    <lay:VerticalLayout id="vlHdr1stCol" width="100%">                    
+    <!--Header -->
+        <!--Initial Indent-->
+                       
+                        <FlexBox id="FlxBxHdr1stRow" width="100%">
+                            <Label text="" id="lbl_ind" design="Bold" class="TH_Hdrlbl" width="25px">
+                            
+                            </Label>
+            <!--Full name-->
+                            <Label text="{i18n>lbl_HdrFullName}" id="lbl_HdrFullName" design="Bold" class="TH_Hdrlbl" width="120px" textAlign="Begin">
+                            </Label>
+                            <Label text="{/val_Name}" id="lbl_HdrFullNameVal" design="Bold" class="TH_Hdrlbl" width="350px" textAlign="Begin">
+                            </Label>
+        <!--Organization-->
+                            <Label text="{i18n>lbl_HdrOrganization}" id="lbl_HdrOrg" design="Bold" class="TH_Hdrlbl" width="100%" textAlign="Begin">
+                            
+                            </Label>
+                            <Label text="{/val_Org}" id="lbl_HdrOrgVal" design="Bold" class="TH_Hdrlbl" width="100%" textAlign="Begin">
+                            
+                            </Label>
+                            <Label text="" id="lbl_FinInd" design="Bold" class="TH_Hdrlbl" width="25px">
+                            
+                            </Label>
+        <!--End Organization-->
+        <!--Final Indent-->
+                        </FlexBox>
+                        <Label text="" id="lbl2ndRowSpce" design="Bold" class="TH_Hdrlbl" width="25px"/>
+                        <FlexBox id="flxHdr2ndRow" width="100%">
+                            <Label text="" id="lbl2ndRowIndt" design="Bold" class="TH_Hdrlbl" width="25px">
+                            
+                            </Label>
+                            <Label text="{i18n>lbl_HdrPersNo}" id="lblHdrPernr" design="Bold" class="TH_Hdrlbl" width="120px" textAlign="Begin">
+                            
+                            </Label>
+                            <Label text="{/val_Pernr}" id="lblHdrPernrVal" design="Bold" class="TH_Hdrlbl" width="200px" textAlign="Begin">
+                            
+                            </Label>
+                            <Button id='btnPrnt' text="Print" press="onPrint" type="Emphasized" class="btnPrnt" width="100px" icon="sap-icon://print" tooltip="Print Training History"></Button>
+                            <Label text="" id="lblHdrFinIndt" design="Bold" class="TH_HdrlblNoMargin" width="25px">
+                            
+                            </Label>
+                        </FlexBox>
+                            
+                    </lay:VerticalLayout>
+
+    <!--End Header -->
+    
+    <!-- Training History Table -->   
+
+    <!-- Table Title -->
+                        
+    <!-- End Table Title -->
+   
+                    
+                    <Toolbar id="ToolBar" width="100%" height="1px" class="panel"/>
+                    <FlexBox id="flxTrainHistTable">
+                    
+                        
+                        <Label id="lblTrainIniIdnt" class="TH_TblIndFin" text="">
+                            <layoutData>
+						        <FlexItemData id="flxItmTrainIniIdnt" growFactor=".5" />
+					        </layoutData>
+                        </Label>
+                        <Table id="tblTrainHist" width="1225px" items="{/val_TblTrainHist}" backgroundDesign="Solid" 
+                               fixedLayout="false"  growing="true" growingThreshold="1000" alternateRowColors="false" >
+    <!-- Training History Columns -->  
+                            <columns>
+                                <Column id="col_Id" width="50px">
+                                    <header>
+                                        <Label class="TH_Colfont" design="Bold" text="ID" id="TblTrainHistColId"/>
+                                    </header>
+                                </Column>
+                                <Column id="col_Course" width="250px">
+                                    <header>
+                                        <Label class="TH_Colfont" design="Bold" text="Course" id="TblTrainHistColCourse" />
+                                    </header>
+                                </Column>
+                                <Column id="col_Categ" width="50px" hAlign="Center">
+                                    <header>
+                                        <Label class="TH_Colfont" design="Bold" text="Category" id="TblTrainHistColCateg"/>
+                                    </header>
+                                </Column>
+                                <Column id="col_BeginDt" width="50px">
+                                    <header>
+                                        <Label class="TH_Colfont" design="Bold" text="Begin Dt." id="TblTrainHistColBeginDt"/>
+                                    </header>
+                                </Column>
+                                <Column id="col_EndDt" width="50px">
+                                    <header>
+                                        <Label class="TH_Colfont" design="Bold" text="End Dt." id="TblTrainHistColEndDt"/>
+                                    </header>
+                                </Column>
+                                <Column id="col_Days" width="30px" hAlign="Center">
+                                    <header>
+                                        <Label class="TH_Colfont" design="Bold" text="Days" id="TblTrainHistColDays" />
+                                    </header>
+                                </Column>
+                                <Column id="col_Hours" width="50px" hAlign="Center">
+                                    <header>
+                                        <Label class="TH_Colfont" design="Bold" text="Hrs." id="TblTrainHistColHours" />
+                                    </header>
+                                </Column>
+                            </columns>
+    <!-- Training History Columns -->
+
+    <!-- Training History Items -->  
+                            <items>
+                                <ColumnListItem id="TblTrainHistIdItm" class="TH_Colfont" >
+                                    <cells>
+                                        <Text id="ID" text="{Id}" renderWhitespace="true" class="Orcell" /> 
+                                    </cells>
+                                    <cells>
+                                        <Text id="Course" text="{Course}" renderWhitespace="true" /> 
+                                    </cells>
+                                    <cells>
+                                        <Text id="Cat" text="{Category}" renderWhitespace="true" class="Orcell" /> 
+                                    </cells>
+                                    <cells>
+                                        <Text id="BegDate" text="{BeginDate}" renderWhitespace="true" class="Orcell"/> 
+                                    </cells>
+                                    <cells>
+                                        <Text id="EndDate" text="{EndDate}" renderWhitespace="true" class="Orcell"/> 
+                                    </cells>
+                                    <cells>
+                                        <Text id="Days" text="{Days}" class="Orcell" /> 
+                                    </cells>
+                                    <cells>
+                                        <Text id="Hours" text="{Hrs}" class="Orcell" /> 
+                                    </cells>
+                                </ColumnListItem>
+                            </items>
+    <!-- Training History Items -->  
+                            
+                        </Table>
+
+                        <Label id="lblTrainFinalIdnt" class="TH_TblIndFin" text="">
+                            <layoutData>
+						        <FlexItemData id="flxItmTrainFinalIdnt" growFactor=".5" />
+					        </layoutData>
+                        </Label>
+    <!-- Training History Table -->  
+                    </FlexBox>
+                    
+                 
+                    
+                    <content />
+                    </ScrollContainer>
+                </Page>
+            </pages>
+        </App>
+    </Shell>
+</mvc:View>
